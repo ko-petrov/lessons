@@ -1,0 +1,11 @@
+x=linspace(-2*pi,3*pi);
+f = sin(x.^2);
+g = cos(x.^2);
+subplot(2,1,1);
+plot(x,f, 'r -');
+title('sin(x^2) ');
+grid on;
+subplot(2,1,2);
+plot(x,g, 'g -');
+title('cos(x^2) ');
+grid on;

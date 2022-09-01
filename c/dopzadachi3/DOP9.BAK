@@ -1,0 +1,38 @@
+/* найти максимальный элемент в каждом столбце двумерного массива */
+#include <stdio.h>
+#include <malloc.h>
+#include <stdlib.h>
+#include <time.h>
+#include <conio.h>
+int main()
+{
+	srand(time(NULL));
+	int **a;
+	int i, j, n, m, max;
+	printf("Количество строк: ");
+	scanf("%d", &m);
+	printf("Количество столбцов: ");
+	scanf("%d", &n);
+	a = (int**)malloc(m * sizeof(int*));
+	for (i = 0; i<m; i++) {
+		a[i] = (int*)malloc(n * sizeof(int));
+		for (j = 0; j < n; j++) {
+			a[i][j] = 10 + rand() % 90;
+			printf("a[%d][%d]=%d  ", i, j, a[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	for (i = 0; i < n; i++) {
+		max = a[0][i];
+		for (j = 1; j < m; j++)
+			if (a[j][i] > max)
+				max = a[j][i];
+		printf("В столбце %d максимальный элемент %d\n", i, max);
+	}
+	for (i = 0; i < m; i++)
+		free(a[i]);
+	free(a);
+	getch();
+	return 0;
+}

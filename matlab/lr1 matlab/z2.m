@@ -1,0 +1,13 @@
+a=input('Введите a: ');
+b=input('Введите b: ');
+alpha=input('Введите alpha в градусах: ')*pi/180;
+opr=det([cos(alpha),-sin(alpha);sin(alpha),cos(alpha)]);
+opr1=det([a,-sin(alpha);b,cos(alpha)]);
+opr2=det([cos(alpha),a;sin(alpha),b]);
+x=(opr1/opr);
+y=(opr2/opr);
+fprintf('                    ОТВЕТ ЗАДАЧИ:\n');
+fprintf('x=%.2f\n',x);
+fprintf('y=%.2f\n',y);
+fprintf('-------------------------\n');
+fprintf('a=%.0f b=%.0f alpha=%.0f\n',a,b,alpha*180/pi);
